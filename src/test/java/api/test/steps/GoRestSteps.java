@@ -9,14 +9,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+
 public class GoRestSteps {
 	
 	GoRestPage go = new GoRestPage();
 	
-	@Before
-	public void beforeScenario(String url){
-		System.out.println("Access");
-	}
+
 
 	@Given("que acesso a API {string}")
 	public void que_acesso_a_api(String url) throws IOException {
@@ -24,15 +22,13 @@ public class GoRestSteps {
 	}
 
 	@When("realizo uma request GET para {string}")
-	public void realizo_uma_request_get_para(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void realizo_uma_request_get_para(String endpoint) throws IOException {
+	    go.requestGETMethod(endpoint);
 	}
 
 	@Then("eu valido a resposta da página {string} com a lista de usuários")
-	public void eu_valido_a_resposta_da_página_com_a_lista_de_usuários(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void eu_valido_a_resposta_da_página_com_a_lista_de_usuários(String page) {
+	    go.validateResponsePageWithListUsers(page);
 	}
 
 	@Then("eu valido os dados do usuário específico {string}")

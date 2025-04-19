@@ -28,6 +28,13 @@
 			<version>6.11.0</version>
 		</dependency>
 
+		<!-- Allure Result Generation -->
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-cucumber6-jvm</artifactId>
+			<version>2.20.0</version>
+		</dependency>
+
 		<!-- JUnit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -49,6 +56,18 @@
 			<version>4.4.0</version>
 		</dependency>
 
+		<!-- Apache POI (Excel) -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>5.2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>5.2.3</version>
+		</dependency>
+
 		<!-- JSON -->
 		<dependency>
 			<groupId>org.json</groupId>
@@ -61,6 +80,13 @@
 			<groupId>com.github.javafaker</groupId>
 			<artifactId>javafaker</artifactId>
 			<version>1.0.2</version>
+		</dependency>
+
+		<!-- Jackson -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.13.0</version>
 		</dependency>
 
 		<!-- Hamcrest -->
@@ -84,6 +110,7 @@
 			<version>9.1.0</version>
 			<type>pom</type>
 		</dependency>
+		
 	</dependencies>
 
 	<build>
