@@ -1,15 +1,26 @@
 package api.test.steps;
 
+import java.io.IOException;
+
+import org.junit.Before;
+
+import api.test.pages.GoRestPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class GoRestSteps {
+	
+	GoRestPage go = new GoRestPage();
+	
+	@Before
+	public void beforeScenario(String url){
+		System.out.println("Access");
+	}
 
 	@Given("que acesso a API {string}")
-	public void que_acesso_a_api(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void que_acesso_a_api(String url) throws IOException {
+		go.accessApi(url);
 	}
 
 	@When("realizo uma request GET para {string}")
