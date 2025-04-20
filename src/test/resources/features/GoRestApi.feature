@@ -14,13 +14,11 @@ Feature: Testes de API - GoRest
   @user-details @all
   Scenario: Obter detalhes de usuários existentes
     Given que acesso a API "<url>"
-    When realizo uma request GET para "<endpoint>"
-    Then eu valido os dados do usuário específico "<user>"
+    When realizo uma request GET para "<endpoint>" e id
+    Then eu valido os dados do usuário específico
     Examples:
-      | tag    | url                            | endpoint   | user  |
-      | @get4  | https://gorest.co.in/public/v2 | /users/1   | 1     |
-      | @get5  | https://gorest.co.in/public/v2 | /users/2   | 2     |
-      | @get6  | https://gorest.co.in/public/v2 | /users/3   | 3     |
+      | tag    | url                            | endpoint   |
+      | @get4  | https://gorest.co.in/public/v2 | /users/  	|
 
   @nonexistent-user @all
   Scenario: Obter detalhes de um usuário inexistente

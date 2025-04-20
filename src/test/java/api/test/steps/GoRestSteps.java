@@ -28,11 +28,15 @@ public class GoRestSteps {
 	public void eu_valido_a_resposta_da_página_com_a_lista_de_usuários(String page) throws IOException {
 	    go.validateResponsePageWithListUsers(page);
 	}
+	
+	@When("realizo uma request GET para {string} e id")
+	public void realizo_uma_request_get_para_e_id(String endpoint) throws IOException {
+	    go.requestGETMethodWithId(endpoint);
+	}
 
-	@Then("eu valido os dados do usuário específico {string}")
-	public void eu_valido_os_dados_do_usuário_específico(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("eu valido os dados do usuário específico")
+	public void eu_valido_os_dados_do_usuário_específico() throws IOException {
+	    go.validateResponseUserSpecific();
 	}
 
 	@Then("eu valido que o erro retornado tem o status code {string}")
