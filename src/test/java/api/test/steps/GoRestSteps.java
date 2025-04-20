@@ -2,8 +2,6 @@ package api.test.steps;
 
 import java.io.IOException;
 
-import org.junit.Before;
-
 import api.test.pages.GoRestPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -27,7 +25,7 @@ public class GoRestSteps {
 	}
 
 	@Then("eu valido a resposta da página {string} com a lista de usuários")
-	public void eu_valido_a_resposta_da_página_com_a_lista_de_usuários(String page) {
+	public void eu_valido_a_resposta_da_página_com_a_lista_de_usuários(String page) throws IOException {
 	    go.validateResponsePageWithListUsers(page);
 	}
 

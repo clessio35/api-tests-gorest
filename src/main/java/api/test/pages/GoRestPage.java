@@ -1,5 +1,8 @@
 package api.test.pages;
 
+import static org.hamcrest.Matchers.everyItem;
+import static org.hamcrest.Matchers.notNullValue;
+
 import java.io.IOException;
 
 import api.test.utils.BasePage;
@@ -24,9 +27,15 @@ public class GoRestPage {
 		BasePage.takeScreenshot(response, endpoint);
 	}
 
-	public void validateResponsePageWithListUsers(String page) {
-		System.out.println("Validate Response Page List");
-		response.then().log().all().statusCode(200);
+	public void validateResponsePageWithListUsers(String page) throws IOException {
+		System.out.println("Validate Response Page List" + page);
+		response.then().statusCode(200).log().body()
+		.body("id", everyItem(notNullValue()))
+	    .body("name", everyItem(notNullValue()))
+	    .body("email", everyItem(notNullValue()))
+	    .body("gender", everyItem(notNullValue()))
+	    .body("status", everyItem(notNullValue()));
+		BasePage.takeScreenshot(response, page);
 	}
 	
 	

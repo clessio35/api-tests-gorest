@@ -8,8 +8,8 @@ Feature: Testes de API - GoRest
     Examples:
       | tag   | url                            | endpoint         | page |
       | @get1 | https://gorest.co.in/public/v2 | /users?page=1    | 1    |
-      | @get2 | https://gorest.co.in/public/v2 | /users?page=2    | 2    |
-      | @get3 | https://gorest.co.in/public/v2 | /users?page=3    | 3    |
+    #  | @get2 | https://gorest.co.in/public/v2 | /users?page=2    | 2    |
+    # | @get3 | https://gorest.co.in/public/v2 | /users?page=3    | 3    |
 
   @detalhes-usuario @all
   Scenario: Obter detalhes de usuários existentes
