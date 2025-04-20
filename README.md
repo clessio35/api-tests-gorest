@@ -45,38 +45,25 @@ Maven instalado
 Para rodar todos os testes, basta usar o comando:
 
 bash
-Copy
-Edit
 mvn clean test
+
 📁 Evidências
 Os arquivos de evidência são gerados automaticamente e salvos no seguinte diretório:
-
-swift
-Copy
-Edit
 Evidences/API/<nome-do-cenário>/
 Cada cenário de teste gerará um arquivo PDF contendo o código de status, corpo da resposta e cabeçalhos, como evidência da execução dos testes.
 
 🔐 Autenticação
 Para acessar os endpoints que exigem autenticação, você precisa obter um token de acesso. Siga os passos abaixo:
 
-Acesse GoRest API.
+- Acesse GoRest API.
+- Gere um token de autenticação pessoal.
+- No código, adicione o header com o token de autenticação no formato Bearer:
+    ->   .header("Authorization", "Bearer SEU_TOKEN_AQUI")  <-
 
-Gere um token de autenticação pessoal.
-
-No código, adicione o header com o token de autenticação no formato Bearer:
-
-pgsql
-Copy
-Edit
-.header("Authorization", "Bearer SEU_TOKEN_AQUI")
 🤖 Integração Contínua
 Este projeto utiliza GitHub Actions para integração contínua. A cada push ou pull request no repositório, um pipeline de testes será executado. O arquivo de configuração do GitHub Actions está localizado em .github/workflows/ci.yml. Ele é responsável por rodar os testes automaticamente, garantindo que as mudanças não quebrem funcionalidades existentes.
 
 Se preferir rodar o projeto no Jenkins, basta configurar um job freestyle ou pipeline e executar:
-
-bash
-Copy
-Edit
 mvn clean test
+
 As evidências geradas, como arquivos PDF, podem ser arquivadas no Jenkins como artefatos, garantindo que todos os resultados dos testes sejam mantidos e visíveis.
