@@ -8,8 +8,8 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
     features = "src/test/resources/features",
-    glue = "api.test.steps",
-    tags = "@user-details", 
+    glue = {"api.test.steps", "api.test.utils"},
+    tags = "@nonexistent-user", 
     publish = true,
     plugin = {"pretty", "html:target/cucumber-reports"}
 )
