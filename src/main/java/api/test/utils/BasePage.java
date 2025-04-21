@@ -22,7 +22,7 @@ public class BasePage {
 	    String format = formatter.format(LocalDateTime.now());
 
 	    // Sanitizando o nome do cenário
-	    String sanitizedName = sanitizeFileName(scenarioName);
+	    String sanitizedName = sanitizeFileName(scenarioName != null ? scenarioName : "unknown_scenario");
 
 	    // Caminho base
 	    String baseFolderPath = "Evidences/API/" + sanitizedName;

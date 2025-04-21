@@ -1,19 +1,19 @@
 package api.test.utils;
 
-import org.junit.Before;
+import io.cucumber.java.Before;
 
 import io.cucumber.java.Scenario;
 
 public class Hooks {
 
-    private static Scenario scenario;
+	private static String scenarioName;
 
     @Before
-    public void beforeScenario(Scenario scenario) {
-        Hooks.scenario = scenario;
+    public void before(Scenario scenario) {
+        scenarioName = scenario.getName();
     }
 
     public static String getScenarioName() {
-        return scenario != null ? scenario.getName() : "unknown_scenario";
+        return scenarioName;
     }
 }

@@ -44,16 +44,14 @@ public class GoRestSteps {
 	    go.validateResponseWithErrorUserNonExistent(status);
 	}
 
-	@When("realizo uma request POST para {string} com {string}, {string}, {string} e {string}")
-	public void realizo_uma_request_post_para_com_e(String string, String string2, String string3, String string4, String string5) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@When("realizo uma request POST para {string}")
+	public void realizo_uma_request_post_para(String endpoint) throws IOException {
+	    go.sendPostRequestWithFixedUserData(endpoint);
 	}
 
-	@Then("eu valido que a criação foi bem-sucedida com status {string}")
-	public void eu_valido_que_a_criação_foi_bem_sucedida_com_status(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@Then("eu valido que a criação foi bem-sucedida")
+	public void eu_valido_que_a_criação_foi_bem_sucedida() throws IOException {
+	    go.validateResponseOfRequestPostWithFixedUserData();
 	}
 
 	@Then("eu valido o erro retornado com status {string}")

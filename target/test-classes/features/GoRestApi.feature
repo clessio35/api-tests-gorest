@@ -32,12 +32,12 @@ Feature: Testes de API - GoRest
   @create-valid-user @all
   Scenario Outline: Criar usuários com dados válidos
     Given que acesso a API "<url>"
-    When realizo uma request POST para "<endpoint>" com "<name>", "<email>", "<gender>" e "<status>"
-    Then eu valido que a criação foi bem-sucedida com status "<statusCode>"
+    When realizo uma request POST para "<endpoint>"
+    Then eu valido que a criação foi bem-sucedida
     Examples:
-      | tag    | url                            | endpoint | name       | email                  | gender | status   | statusCode |
-      | @post1 | https://gorest.co.in/public/v2 | /users   | Ana Paula | ana@gorest.com         | female | active   | 201        |
-      | @post2 | https://gorest.co.in/public/v2 | /users   | João Silva| joao@gorest.com        | male   | inactive | 201        |
+      | tag    | url                            | endpoint |
+      | @post1 | https://gorest.co.in/public/v2 | /users   |
+      | @post2 | https://gorest.co.in/public/v2 | /users   |
 
   @create-invalid-user @all
   Scenario Outline: Criar usuários com dados inválidos

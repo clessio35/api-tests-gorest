@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class Token {
 	
-	public String getApiToken() throws IOException {
+	public static String getApiToken() throws IOException {
 		Properties prop = new Properties();
 		try(InputStream input = Token.class.getClassLoader().getResourceAsStream("application.properties")) {
 			if(input == null) {
