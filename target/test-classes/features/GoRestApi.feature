@@ -47,7 +47,7 @@ Feature: Testes de API - GoRest
     Examples:
       | tag    | url                            | endpoint | name | email     | gender | status |
       | @post3 | https://gorest.co.in/public/v2 | /users   |      |           |        |        |
-      | @post4 | https://gorest.co.in/public/v2 | /users   | John | 				  | male   | active |
+     
 
   @update-user @all
   Scenario Outline: Atualizar dados de usuários

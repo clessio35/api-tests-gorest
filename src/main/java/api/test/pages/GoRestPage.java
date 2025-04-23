@@ -116,15 +116,28 @@ public class GoRestPage {
 		BasePage.takeScreenshot(response, Hooks.getScenarioName());
 	}
 
-	public void sendPostRequestWithFixedUserData(String endpoint, String name, String email, String gender,
-			String status) {
-		// TODO Auto-generated method stub
-		
+	public void sendPostRequestWithFixedUserData(String endpoint, String name, String email, String gender, String status) throws IOException {
+		System.out.println("Send post request with fixed user data");
+		String token = Token.getApiToken();
+		HashMap<String, Object> user = new HashMap<String, Object>();
+		user.put("name", name);
+		user.put("email", email);
+		user.put("gender", gender);
+		user.put("status", status);
+		response = RestAssured.given().log().body()
+				.header("Authorization", "Bearer " + token)
+				.contentType(ContentType.JSON)
+				.body(user).when().post(endpoint);
 	}
 	
-	public void validateReturnOfResponseWithError() {
-		// TODO Auto-generated method stub
-		
+	public void validateReturnOfResponseWithError() throws IOException {
+		System.out.println("Validate return ");
+		response.then().statusCode(422).log().body()
+		.body("email", Matchers.everyItem(Matchers.nullValue()))
+		.body("name", Matchers.everyItem(Matchers.nullValue()))
+		.body("gender", Matchers.everyItem(Matchers.nullValue()))
+		.body("status", Matchers.everyItem(Matchers.nullValue()));
+		BasePage.takeScreenshot(response, Hooks.getScenarioName());
 	}
 
 

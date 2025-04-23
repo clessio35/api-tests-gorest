@@ -55,12 +55,12 @@ public class GoRestSteps {
 	}
 
 	@When("realizo uma request POST para {string} com {string}, {string}, {string} e {string}")
-	public void realizo_uma_request_post_para_com_e(String endpoint, String name, String email, String gender, String status) {
+	public void realizo_uma_request_post_para_com_e(String endpoint, String name, String email, String gender, String status) throws IOException {
 	    go.sendPostRequestWithFixedUserData(endpoint, name, email, gender, status);
 	}
 
 	@Then("eu valido o erro retornado")
-	public void eu_valido_o_erro_retornado() {
+	public void eu_valido_o_erro_retornado() throws IOException {
 	    go.validateReturnOfResponseWithError();
 	}
 
