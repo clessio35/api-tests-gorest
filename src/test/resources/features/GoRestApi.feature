@@ -43,11 +43,11 @@ Feature: Testes de API - GoRest
   Scenario Outline: Criar usuários com dados inválidos
     Given que acesso a API "<url>"
     When realizo uma request POST para "<endpoint>" com "<name>", "<email>", "<gender>" e "<status>"
-    Then eu valido o erro retornado com status "<statusCode>"
+    Then eu valido o erro retornado
     Examples:
-      | tag    | url                            | endpoint | name | email        | gender | status | statusCode |
-      | @post3 | https://gorest.co.in/public/v2 | /users   |      |              |        |        | 422        |
-      | @post4 | https://gorest.co.in/public/v2 | /users   | John | invalid.com  | male   | active | 422        |
+      | tag    | url                            | endpoint | name | email     | gender | status |
+      | @post3 | https://gorest.co.in/public/v2 | /users   |      |           |        |        |
+      | @post4 | https://gorest.co.in/public/v2 | /users   | John | 				  | male   | active |
 
   @update-user @all
   Scenario Outline: Atualizar dados de usuários

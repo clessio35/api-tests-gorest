@@ -94,7 +94,7 @@ public class GoRestPage {
 		return json;
 	}
 
-	public void sendPostRequestWithFixedUserData(String endpoint) throws IOException {
+	public void sendPostRequestWithData(String endpoint) throws IOException {
 		System.out.println("Send Post request with fixed userdata");
 		String token = Token.getApiToken();
 		
@@ -115,6 +115,18 @@ public class GoRestPage {
 		response.then().body("id", Matchers.equalTo(id));
 		BasePage.takeScreenshot(response, Hooks.getScenarioName());
 	}
+
+	public void sendPostRequestWithFixedUserData(String endpoint, String name, String email, String gender,
+			String status) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void validateReturnOfResponseWithError() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 	
 	

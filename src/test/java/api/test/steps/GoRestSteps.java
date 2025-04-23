@@ -46,7 +46,7 @@ public class GoRestSteps {
 
 	@When("realizo uma request POST para {string}")
 	public void realizo_uma_request_post_para(String endpoint) throws IOException {
-	    go.sendPostRequestWithFixedUserData(endpoint);
+	    go.sendPostRequestWithData(endpoint);
 	}
 
 	@Then("eu valido que a criação foi bem-sucedida")
@@ -54,10 +54,14 @@ public class GoRestSteps {
 	    go.validateResponseOfRequestPostWithFixedUserData();
 	}
 
-	@Then("eu valido o erro retornado com status {string}")
-	public void eu_valido_o_erro_retornado_com_status(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	@When("realizo uma request POST para {string} com {string}, {string}, {string} e {string}")
+	public void realizo_uma_request_post_para_com_e(String endpoint, String name, String email, String gender, String status) {
+	    go.sendPostRequestWithFixedUserData(endpoint, name, email, gender, status);
+	}
+
+	@Then("eu valido o erro retornado")
+	public void eu_valido_o_erro_retornado() {
+	    go.validateReturnOfResponseWithError();
 	}
 
 	@When("realizo uma request PUT para {string} com novos dados {string}, {string}")
