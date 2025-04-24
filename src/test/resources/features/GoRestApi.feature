@@ -52,11 +52,11 @@ Feature: Testes de API - GoRest
   @update-user @all
   Scenario Outline: Atualizar dados de usuários
     Given que acesso a API "<url>"
-    When realizo uma request PUT para "<endpoint>" com novos dados "<name>", "<status>"
+    When realizo uma request PUT para "<endpoint>" com novos dados
     Then eu valido que os dados foram atualizados corretamente com status "<statusCode>"
     Examples:
-      | tag    | url                            | endpoint  | name       | status  | statusCode |
-      | @put1  | https://gorest.co.in/public/v2 | /users/1  | Novo Nome  | active  | 200        |
+      | tag    | url                            | endpoint  | statusCode |
+      | @put1  | https://gorest.co.in/public/v2 | /users/1  | 200        |
 
   @delete-user @all
   Scenario: Excluir usuário existente
