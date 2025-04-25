@@ -48,7 +48,9 @@ public class GoRestPage {
 	}
 	
 	public int getFirstUserId() {
-		response = RestAssured.given().log().all().contentType(ContentType.JSON).when()
+		response = RestAssured.given().log().all()
+				.contentType(ContentType.JSON)
+				.when()
 				.get("/users");
 		response.then().statusCode(200);
 		List<Integer> ids = response.jsonPath().getList("id");
@@ -159,6 +161,16 @@ public class GoRestPage {
 		.body("gender", Matchers.not(Matchers.emptyOrNullString()))
 		.body("status", Matchers.not(Matchers.emptyOrNullString())).extract().body().jsonPath();
 		BasePage.takeScreenshot(response, Hooks.getScenarioName());	
+	}
+
+	public void sendDeleteRequest(String endpoint) throws IOException {
+		System.out.println("Delete method");
+		String token = Token.getApiToken();
+		int id = getFirstUserId();
+		response = RestAssured.given().log().body()
+				.header("Authorization", "Bearer: " + token)
+				.contentType(ContentType.JSON)
+				.when().delete(endpoint + id);
 	}
 
 

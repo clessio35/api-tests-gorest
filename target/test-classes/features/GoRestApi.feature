@@ -65,4 +65,4 @@ Feature: Testes de API - GoRest
     Then eu valido o status de resposta "<statusCode>"
     Examples:
       | tag     | url                            | endpoint   | statusCode |
-      | @del1   | https://gorest.co.in/public/v2 | /users/1   | 204        |
+      | @del1   | https://gorest.co.in/public/v2 | /users/    | 204        |
