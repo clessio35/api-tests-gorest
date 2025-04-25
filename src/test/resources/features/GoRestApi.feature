@@ -56,7 +56,7 @@ Feature: Testes de API - GoRest
     Then eu valido que os dados foram atualizados corretamente com status "<statusCode>"
     Examples:
       | tag    | url                            | endpoint  | statusCode |
-      | @put1  | https://gorest.co.in/public/v2 | /users/1  | 200        |
+      | @put1  | https://gorest.co.in/public/v2 | /users/  | 200        |
 
   @delete-user @all
   Scenario: Excluir usuário existente

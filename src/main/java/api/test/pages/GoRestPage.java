@@ -140,6 +140,27 @@ public class GoRestPage {
 		BasePage.takeScreenshot(response, Hooks.getScenarioName());
 	}
 
+	public void sendPutRequestForNewUsers(String endpoint) throws IOException {
+		System.out.println("Send PUT request");
+		int id = getFirstUserId();
+		String token = Token.getApiToken();
+		response = RestAssured.given().log().body()
+					.headers("Authorization", "Bearer " + token)
+					.body(payload().toString())
+					.when().put(endpoint+id);
+	}
+
+	public void validatePutMethodResponse(String statusCode) throws IOException {
+		System.out.println("Validate PUT Method");
+		int sc = Integer.parseInt(statusCode);
+		response.then().log().all().statusCode(sc)
+		.body("name", Matchers.not(Matchers.emptyOrNullString()))
+		.body("email", Matchers.not(Matchers.emptyOrNullString()))
+		.body("gender", Matchers.not(Matchers.emptyOrNullString()))
+		.body("status", Matchers.not(Matchers.emptyOrNullString())).extract().body().jsonPath();
+		BasePage.takeScreenshot(response, Hooks.getScenarioName());	
+	}
+
 
 	
 	

@@ -65,14 +65,13 @@ public class GoRestSteps {
 	}
 
 	@When("realizo uma request PUT para {string} com novos dados")
-	public void realizo_uma_request_put_para_com_novos_dados(String endpoint) {
+	public void realizo_uma_request_put_para_com_novos_dados(String endpoint) throws IOException {
 	    go.sendPutRequestForNewUsers(endpoint);
 	}
 
 	@Then("eu valido que os dados foram atualizados corretamente com status {string}")
-	public void eu_valido_que_os_dados_foram_atualizados_corretamente_com_status(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void eu_valido_que_os_dados_foram_atualizados_corretamente_com_status(String statusCode) throws IOException {
+	    go.validatePutMethodResponse(statusCode);
 	}
 
 	@When("realizo uma request DELETE para {string}")
