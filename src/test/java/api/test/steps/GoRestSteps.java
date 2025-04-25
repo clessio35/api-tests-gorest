@@ -75,13 +75,12 @@ public class GoRestSteps {
 	}
 
 	@When("realizo uma request DELETE para {string}")
-	public void realizo_uma_request_delete_para(String endpoint) {
+	public void realizo_uma_request_delete_para(String endpoint) throws IOException {
 	    go.sendDeleteRequest(endpoint);
 	}
 
 	@Then("eu valido o status de resposta {string}")
-	public void eu_valido_o_status_de_resposta(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void eu_valido_o_status_de_resposta(String statusCode) throws IOException {
+	    go.validateDeleteMethod(statusCode);
 	}
 }

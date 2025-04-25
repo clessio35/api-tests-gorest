@@ -167,10 +167,17 @@ public class GoRestPage {
 		System.out.println("Delete method");
 		String token = Token.getApiToken();
 		int id = getFirstUserId();
-		response = RestAssured.given().log().body()
-				.header("Authorization", "Bearer: " + token)
+		response = RestAssured.given().log().all()
+				.header("Authorization", "Bearer " + token)
 				.contentType(ContentType.JSON)
 				.when().delete(endpoint + id);
+	}
+
+	public void validateDeleteMethod(String statusCode) throws IOException {
+		System.out.println("Validate Delete Method");
+		int sc = Integer.parseInt(statusCode);
+		response.then().statusCode(sc);
+		BasePage.takeScreenshot(response, Hooks.getScenarioName());
 	}
 
 

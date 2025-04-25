@@ -1,2 +1,4 @@
 api\test\pages\GoRestPage.class
+api\test\utils\Token.class
 api\test\utils\BasePage.class
+api\test\utils\Hooks.class
