@@ -15,3 +15,5 @@ COPY . .
 
 # Compila e roda os testes
 RUN mvn clean test
+
+CMD ["mvn", "clean", "test"]
